@@ -1,0 +1,75 @@
+\documentclass{article}[12pt]
+
+%% Adam Shaw, April 2015
+%% in conjunction with CMSC 23500, Spring 2015, Univ of Chicago
+
+\setlength{\parskip}{8pt}
+\setlength{\parindent}{0cm}
+
+\newcommand{\assignment}{Homework 2}
+\newcommand{\whoami}{Andrew Yang}
+\newcommand{\assignmentdate}{April 23, 2015}
+
+% various macros for relational algebra...
+% edit, and supplement with your own
+
+% rel : relation
+\newcommand{\rel}[1]{\ensuremath{#1}}
+
+% conj : conjunction
+\newcommand{\conj}[2]{\ensuremath{#1 \wedge #2}}
+
+% disj : disjunction
+\newcommand{\disj}[2]{\ensuremath{#1 \vee #2}}
+
+% nj : natural join 
+\newcommand{\nj}[2]{\ensuremath{#1 \bowtie #2}}
+
+% sel : select
+\newcommand{\sel}[2]{\ensuremath{\sigma_{#1} #2}}
+
+% proj : project
+\newcommand{\proj}[2]{\ensuremath{\pi_{#1} #2}}
+
+% ren : rename
+\newcommand{\ren}[2]{\ensuremath{\rho_{#1} #2}}
+
+% ...
+
+\begin{document}
+
+{\large \bf CMSC 23500: Introduction to Databases}
+
+\assignment \\
+\whoami \\
+\assignmentdate
+
+\hrulefill
+
+% a few expressions to get you started...
+
+\subsection*{Q1}
+A1. \proj {pname} (\sel {visits per year < 100}(\rel{P}))\\
+A2. \proj {ssn} (\sel {pname == "Yellowstone} (\nj{\rel{P}}{\rel{R}}))\\
+A3. \proj {lname} (\sel {pop < 2000000} (\nj {\nj {\rel{S}}{\rel{P}}} {\rel{R}}))
+
+\subsection*{Q2}
+B1. \proj {lname} (\sel {sname == "Yesterday"}(\nj{\nj{\rel{S}}{\rel{W}}}{\rel{P}}))\\
+B2. \proj {sname} ({\sel {\conj {lname == "Rogers"} {fname == "Richard"}}(\nj{\nj{\rel{S}}{\rel{W}}}{\rel{P}}))\\
+B3. \proj {sname} (\nj{ \nj {(\sel{iname == "flute"}(\nj{\rel{R}}{\rel{I}}))}{\rel{T}}} {\rel{S}}) \\
+B4. \proj {lname} (\sel{iname == "guitar"}(\nj{\rel{R}}{\rel{P}}))\\
+B5. \proj {fname, lname}(\sel {\conj {iname == "tuba" }  {writerID == playerID}} (\nj{\nj{\rel{I}}{\ren{tID, playerID, iID} ({\rel{R})}} } {\nj{\rel{T}}(\ren{sID, writerID, lname, fname}(\nj{\rel{W}}{\rel{P}}))}}))
+
+%\begin{enumerate}
+
+%\item \rel{r}
+
+%\item \nj{\rel{r}}{\rel{s}}
+
+%\item \sel{f>1}({\nj{\rel{r}}{\rel{s}}})
+
+%\item \ren{a \rightarrow b}(\proj{a}{\rel{r}}) 
+
+%\end{enumerate}
+
+\end{document}
