@@ -58,7 +58,7 @@ B1. \proj {lname} (\sel {sname == "Yesterday"}(\nj{\nj{\rel{S}}{\rel{W}}}{\rel{P
 B2. \proj {sname} ({\sel {\conj {lname == "Rogers"} {fname == "Richard"}}(\nj{\nj{\rel{S}}{\rel{W}}}{\rel{P}}))\\
 B3. \proj {sname} (\nj{ \nj {(\sel{iname == "flute"}(\nj{\rel{R}}{\rel{I}}))}{\rel{T}}} {\rel{S}}) \\
 B4. \proj {lname} (\sel{iname == "guitar"}(\nj{\rel{R}}{\rel{P}}))\\
-B5. \proj {fname, lname}(\sel {\conj {iname == "tuba" }  {writerID == playerID}} (\nj{\nj{\rel{I}}{\ren{tID, playerID, iID} ({\rel{R})}} } {\nj{\rel{T}}(\ren{sID, writerID, lname, fname}(\nj{\rel{W}}{\rel{P}}))}}))
+B5. \proj {fname, lname} (\sel{iname == "tuba"} (\nj{\nj{\nj{\nj{\rel{W}}{\rel{P}}}{\rel{T}}}{\rel{R}}}{\rel{I}}))
 
 %\begin{enumerate}
 
