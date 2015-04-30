@@ -1,0 +1,1 @@
+SELECT artistID, fname, lname, MIN (deathYear - birthYear) FROM Artists;
